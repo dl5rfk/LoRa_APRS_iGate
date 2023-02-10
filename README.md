@@ -9,4 +9,5 @@ Further descriptions about hardware, firmware, howtos, ..., can be found in the 
 Changes I made because they are relevant to me:
 
 - Decrease number of digits for SNR and FreqError sent to syslog
+- Enabling digipeating without WIDE in path <ATTENTION: Do only enable digipeating if you know what you are doing. TX freq and RX freq must (!) be different, otherwise you will get a ping-pong and lock the frequency. You have been warned>
 
