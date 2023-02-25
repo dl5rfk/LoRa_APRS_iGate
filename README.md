@@ -1,4 +1,4 @@
-<b>Mane76 - Lora APRS iGate firmware - Fork of LoRa APRS iGate</b>
+## Mane76 - Lora APRS iGate firmware - Fork of LoRa APRS iGate
 
 This code is a fork of the iGate firmware published by Peter Buchegger, OE5BPA.
 
