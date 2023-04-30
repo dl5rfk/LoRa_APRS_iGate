@@ -67,6 +67,7 @@ public:
     String passcode;
     String server;
     int    port;
+    String filter;
   };
 
   class Digi {
@@ -121,7 +122,7 @@ public:
 
   class MQTT {
   public:
-    MQTT() : active(false), server(""), port(1883), name(""), password(""), topic("LoraAPRS/Data") {
+    MQTT() : active(false), server(""), port(1883), name(""), password(""), topic("LoraAPRS/Data"), will_active(false), will_topic("LoraAPRS/State"), will_message("offline"), birth_message("online") {
     }
 
     bool   active;
@@ -130,6 +131,10 @@ public:
     String name;
     String password;
     String topic;
+    bool   will_active;
+    String will_topic;
+    String will_message;
+    String birth_message;
   };
 
   class Syslog {

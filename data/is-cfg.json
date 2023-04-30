@@ -36,7 +36,8 @@
 		"active": true,
 		"passcode": "",
 		"server": "euro.aprs2.net",
-		"port": 14580
+		"port": 14580,
+		"filter": ""
 	},
 	"digi": {
 		"active": false,
@@ -73,7 +74,11 @@
 		"port": 1883,
 		"name": "",
 		"password": "",
-		"topic": "LoraAPRS/Data"
+		"topic": "LoraAPRS/Data",
+		"will_active": false,
+		"will_topic": "LoraAPRS/State",
+		"will_message": "offline",
+		"birth_message": "online"
 	},
 	"syslog": {
 		"active": false,

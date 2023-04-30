@@ -52,6 +52,8 @@ void ProjectConfigurationManagement::readProjectConfiguration(DynamicJsonDocumen
   if (data.containsKey("aprs_is") && data["aprs_is"].containsKey("server"))
     conf.aprs_is.server = data["aprs_is"]["server"].as<String>();
   conf.aprs_is.port = data["aprs_is"]["port"] | 14580;
+  if (data.containsKey("aprs_is") && data["aprs_is"].containsKey("filter"))
+    conf.aprs_is.filter = data["aprs_is"]["filter"].as<String>();
 
   conf.digi.active = data["digi"]["active"] | false;
   conf.digi.beacon = data["digi"]["beacon"] | false;
@@ -97,6 +99,13 @@ void ProjectConfigurationManagement::readProjectConfiguration(DynamicJsonDocumen
     conf.mqtt.password = data["mqtt"]["password"].as<String>();
   if (data["mqtt"].containsKey("topic"))
     conf.mqtt.topic = data["mqtt"]["topic"].as<String>();
+  conf.mqtt.will_active = data["mqtt"]["will_active"] | false;
+  if (data["mqtt"].containsKey("will_topic"))
+    conf.mqtt.will_topic = data["mqtt"]["will_topic"].as<String>();
+  if (data["mqtt"].containsKey("will_message"))
+    conf.mqtt.will_message = data["mqtt"]["will_message"].as<String>();
+  if (data["mqtt"].containsKey("birth_message"))
+    conf.mqtt.birth_message = data["mqtt"]["birth_message"].as<String>();
 
   conf.syslog.active = data["syslog"]["active"] | true;
   if (data["syslog"].containsKey("server"))
@@ -140,6 +149,7 @@ void ProjectConfigurationManagement::writeProjectConfiguration(Configuration &co
   data["aprs_is"]["passcode"]             = conf.aprs_is.passcode;
   data["aprs_is"]["server"]               = conf.aprs_is.server;
   data["aprs_is"]["port"]                 = conf.aprs_is.port;
+  data["aprs_is"]["filter"]               = conf.aprs_is.filter;
   data["digi"]["active"]                  = conf.digi.active;
   data["digi"]["beacon"]                  = conf.digi.beacon;
   data["lora"]["frequency_rx"]            = conf.lora.frequencyRx;
@@ -161,16 +171,19 @@ void ProjectConfigurationManagement::writeProjectConfiguration(Configuration &co
     v["name"]     = u.name;
     v["password"] = u.password;
   }
-  data["mqtt"]["active"]   = conf.mqtt.active;
-  data["mqtt"]["server"]   = conf.mqtt.server;
-  data["mqtt"]["port"]     = conf.mqtt.port;
-  data["mqtt"]["name"]     = conf.mqtt.name;
-  data["mqtt"]["password"] = conf.mqtt.password;
-  data["mqtt"]["topic"]    = conf.mqtt.topic;
-  data["syslog"]["active"] = conf.syslog.active;
-  data["syslog"]["server"] = conf.syslog.server;
-  data["syslog"]["port"]   = conf.syslog.port;
-  data["ntp_server"]       = conf.ntpServer;
+  data["mqtt"]["active"]        = conf.mqtt.active;
+  data["mqtt"]["server"]        = conf.mqtt.server;
+  data["mqtt"]["port"]          = conf.mqtt.port;
+  data["mqtt"]["name"]          = conf.mqtt.name;
+  data["mqtt"]["password"]      = conf.mqtt.password;
+  data["mqtt"]["topic"]         = conf.mqtt.topic;
+  data["mqtt"]["will_active"]   = conf.mqtt.will_active;
+  data["mqtt"]["will_topic"]    = conf.mqtt.will_topic;
+  data["mqtt"]["birth_message"] = conf.mqtt.birth_message;
+  data["syslog"]["active"]      = conf.syslog.active;
+  data["syslog"]["server"]      = conf.syslog.server;
+  data["syslog"]["port"]        = conf.syslog.port;
+  data["ntp_server"]            = conf.ntpServer;
 
   data["board"] = conf.board;
 }

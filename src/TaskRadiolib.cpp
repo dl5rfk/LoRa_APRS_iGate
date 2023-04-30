@@ -182,6 +182,8 @@ bool RadiolibTask::loop(System &system) {
                 return true;
               }
             }
+          } else {
+            _toModem.getElement(); // empty list, otherwise memory will get full.
           }
         }
       }
