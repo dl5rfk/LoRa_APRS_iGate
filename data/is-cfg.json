@@ -24,7 +24,7 @@
 		]
 	},
 	"beacon": {
-		"message": "LoRa iGate v23.06.0m",
+		"message": "LoRa iGate v23.17.0m",
 		"position": {
 			"latitude": 0.000000,
 			"longitude": 0.000000
