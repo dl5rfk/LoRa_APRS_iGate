@@ -14,4 +14,8 @@ Changes I made because they are relevant to me:
 ATTENTION: 
 
 Do only enable digipeating if you know what you are doing. TX freq and RX freq must (!) be different, otherwise you will get a ping-pong and lock the frequency. You have been warned
+Do only use the TX function of the iGate if you know what you are doing.
+
+By using this software you are responsible to be inline with the regulations in your country
+
 
