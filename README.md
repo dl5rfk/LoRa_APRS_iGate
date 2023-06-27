@@ -1,4 +1,6 @@
-## Mane76 - Lora APRS iGate firmware - Fork of LoRa APRS iGate
+# Mane76 - Lora APRS iGate firmware - Fork of LoRa APRS iGate
+# Update 06/2023 - Fork will be discontinued, see https://github.com/Mane76/LoRa_APRS_iGate_2nd_gen
+
 
 This code is a fork of the iGate firmware published by Peter Buchegger, OE5BPA.
 
